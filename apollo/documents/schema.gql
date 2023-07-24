@@ -1,0 +1,26 @@
+type Mutation {
+  create(description: String!, is_completed: Boolean!): Todo!
+  delete(id: Int!): Todo
+  update(description: String!, id: Int!, is_completed: Boolean!): Todo
+}
+
+type Query {
+  getAll: [Todo!]!
+  getByID(id: Int!): [Todo!]!
+  getComplete: [Todo!]!
+  getIncomplete: [Todo!]!
+}
+
+type Todo {
+  description: String!
+  id: Int!
+  is_completed: Boolean!
+}
+
+query Query {
+  getAll {
+    id
+    description
+    is_completed
+  }
+}
